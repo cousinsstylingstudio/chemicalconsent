@@ -880,24 +880,17 @@ body {
         <option>Mobile — Luxury / Pop-Up</option>
       </select>
     </div>
-    <div>
-      <label class="field-label">Estimated Duration</label>
-      <select class="field-select" id="apptDuration">
-        <option value="">Select...</option>
-        <option>Under 1 hour</option>
-        <option>1 – 2 hours</option>
-        <option>2 – 3 hours</option>
-        <option>3 – 4 hours</option>
-        <option>4 – 6 hours</option>
-        <option>6+ hours</option>
-        <option>Not sure</option>
-      </select>
     </div>
   </div>
 
+  <div style="background:#fafafa;border:1px solid #ddd;border-radius:3px;padding:12px 15px;margin-bottom:14px;">
+    <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:#C4922A;margin-bottom:5px;">A Note on Appointment Time</div>
+    <p style="font-size:12px;color:#444;line-height:1.75;">Chemical service times vary based on the complexity of your hair, its history, and the result we are working toward together. We encourage clients receiving these services to come without strict time constraints. Your stylist will give you the most up-to-date timing estimate at your appointment, but cannot guarantee a specific end time.</p>
+  </div>
+
   <div class="grid1">
-    <label class="field-label">Tell Us What You're Envisioning</label>
-    <textarea class="write-area" id="svcDescription" placeholder="Style, length, technique, inspiration..." rows="3"></textarea>
+    <label class="field-label">What Are You Hoping to Achieve Today?</label>
+    <textarea class="write-area" id="svcDescription" placeholder="Examples: brighter blonde, more natural blend, lighter wig knots, copper tone, fuller look, vivid color, cover grays, correct previous color..." rows="3"></textarea>
   </div>
 
   <div class="photo-block no-print">
@@ -906,23 +899,6 @@ body {
     <input type="file" id="refPhoto" accept="image/*" multiple style="display:none;" onchange="handlePhotoUpload(event)">
     <button type="button" class="photo-btn" onclick="document.getElementById('refPhoto').click()">Choose Photos</button>
     <div id="photoPreview" class="photo-preview"></div>
-  </div>
-
-  <!-- ACCOMMODATIONS -->
-  <div class="sec-head">Accommodations &amp; Accessibility</div>
-  <p style="font-size:12px;color:#555;margin-bottom:10px;">Let us know what you need so we can prepare specifically for you.</p>
-  <div class="check-grid">
-    <label class="check-item"><input type="checkbox" value="sensory"><span>Sensory-Friendly Session</span></label>
-    <label class="check-item"><input type="checkbox" value="mobility"><span>Mobility Accommodation</span></label>
-    <label class="check-item"><input type="checkbox" value="low_stim"><span>Low Stimulation Environment</span></label>
-    <label class="check-item"><input type="checkbox" value="extra_time"><span>Extended Appointment Time</span></label>
-    <label class="check-item"><input type="checkbox" value="caregiver"><span>Caregiver / Support Person</span></label>
-    <label class="check-item"><input type="checkbox" value="minor"><span>Service for a Minor</span></label>
-    <label class="check-item"><input type="checkbox" value="none_a"><span>No Accommodations Needed</span></label>
-  </div>
-  <div class="grid1">
-    <label class="field-label">Communication preferences or anything else we should know</label>
-    <textarea class="write-area" id="accessNotes" placeholder="Verbal cues, seating needs, preferred communication style..." rows="2"></textarea>
   </div>
 
   <!-- HAIR HISTORY -->
@@ -979,38 +955,11 @@ body {
   </div>
 
   <!-- RISKS -->
-  <div class="sec-head">Risks — Please Initial Each Item</div>
-  <p style="font-size:12px;color:#555;margin-bottom:12px;">Initial next to each item to confirm you have read it.</p>
-
-  <div class="risk-row">
-    <div class="risk-text"><strong>Scalp Sensitivity or Reaction:</strong> Chemical services can cause irritation even without prior history. Tell us immediately if anything feels uncomfortable.</div>
-    <div class="risk-initial-wrap"><span class="ri-label">Initials</span><input type="text" class="risk-initial" maxlength="4" placeholder="____"></div>
-  </div>
-  <div class="risk-row">
-    <div class="risk-text"><strong>Hair Strength &amp; Structure:</strong> Chemical services may affect hair integrity. We assess condition first and will recommend adjustments if needed.</div>
-    <div class="risk-initial-wrap"><span class="ri-label">Initials</span><input type="text" class="risk-initial" maxlength="4" placeholder="____"></div>
-  </div>
-  <div class="risk-row">
-    <div class="risk-text"><strong>Texture &amp; Curl Pattern:</strong> Some services may shift curl pattern or texture temporarily or permanently.</div>
-    <div class="risk-initial-wrap"><span class="ri-label">Initials</span><input type="text" class="risk-initial" maxlength="4" placeholder="____"></div>
-  </div>
-  <div class="risk-row">
-    <div class="risk-text"><strong>Color Variability:</strong> Porosity and prior treatments affect how color absorbs. Results may vary from inspiration photos.</div>
-    <div class="risk-initial-wrap"><span class="ri-label">Initials</span><input type="text" class="risk-initial" maxlength="4" placeholder="____"></div>
-  </div>
-  <div class="risk-row">
-    <div class="risk-text"><strong>Multiple Sessions:</strong> Some results require more than one appointment to protect hair integrity.</div>
-    <div class="risk-initial-wrap"><span class="ri-label">Initials</span><input type="text" class="risk-initial" maxlength="4" placeholder="____"></div>
-  </div>
-
-  <!-- PROTECTIONS SUMMARY -->
-  <div class="sec-head">How We Protect Both of Us</div>
-  <div class="policy-grid">
-    <div class="policy-card"><div class="pc-title">Our Right to Pause or Decline</div><p>If hair or scalp isn't suitable for the service, we'll be direct and help you plan accordingly.</p></div>
-    <div class="policy-card"><div class="pc-title">Shared Responsibility</div><p>Outcomes from undisclosed history fall outside our responsibility. We stand behind our process.</p></div>
-    <div class="policy-card"><div class="pc-title">Aftercare Is Part of the Service</div><p>Your stylist will walk you through aftercare before you leave. Following it protects your results.</p></div>
-    <div class="policy-card"><div class="pc-title">Honesty Goes Both Ways</div><p>Everything shared here is accurate to the best of your knowledge. No hidden charges on our end.</p></div>
-  </div>
+  <div class="sec-head">Chemical Service Acknowledgment</div>
+  <label class="ack-row" id="riskAckWrap">
+    <input type="checkbox" id="riskAck">
+    <span>I understand that chemical and color services involve variables including scalp sensitivity, changes to hair integrity, texture and curl pattern shifts, and color variability depending on my hair's history and porosity. My stylist will assess my hair before beginning and will communicate any adjustments needed to protect my hair and scalp.</span>
+  </label>
 
   <!-- PRICING -->
   <div class="sec-head">Total Appointment Investment</div>
@@ -1053,7 +1002,7 @@ body {
   <div class="terms-box">
     <div class="terms-header">
       <span>Cousin's Styling Studio — Policy v1.0 &nbsp;&middot;&nbsp; May 2026</span>
-      <a href="https://bookcousins.com/terms" target="_blank">Full policy &rarr;</a>
+      <a href="https://bookcousins.com/terms" target="_blank">View full policies &rarr;</a>
     </div>
     <div class="terms-body">
       <h4>01 — Deposits</h4>
@@ -1064,19 +1013,10 @@ body {
         <tr><td>Cancel under 24 hours</td><td>Deposit retained for stylist's reserved time.</td></tr>
         <tr><td>No-show, no contact</td><td>Deposit forfeited. Appointment released after 15 min.</td></tr>
         <tr><td>Studio cancels</td><td>Full refund issued.</td></tr>
-        <tr><td>Full payment at deposit</td><td>Accepted via Zelle. Balance waived.</td></tr>
       </table>
-
-      <h4>02 — Cancellations &amp; No-Shows</h4>
-      <ul>
-        <li>24+ hours notice: deposit transfers to future booking.</li>
-        <li>Under 24 hours: deposit retained as cancellation fee.</li>
-        <li>No-show: deposit forfeited in full.</li>
-        <li>Repeat no-shows may require full prepayment to rebook.</li>
-      </ul>
       <p style="font-size:11px;color:#888;font-style:italic;">Cancel via call or text to (951) 653-4477. Third-party app cancellations do not protect your deposit.</p>
 
-      <h4>03 — Late Arrivals</h4>
+      <h4>02 — Late Arrivals</h4>
       <table>
         <tr><th>Arrival</th><th>What to Expect</th></tr>
         <tr><td>On time</td><td>We are ready for you.</td></tr>
@@ -1085,15 +1025,7 @@ body {
         <tr><td>No contact after 15 min</td><td>Appointment released. Deposit applied to reserved time.</td></tr>
       </table>
 
-      <h4>04 — Hair &amp; Materials</h4>
-      <ul>
-        <li>Standard dark brown braiding hair (26" and 40") included in applicable service pricing.</li>
-        <li>Special hair may be brought by client or sourced by studio. Sourced hair requires a separate deposit before ordering.</li>
-        <li>Client-provided hair used at stylist's discretion. We cannot guarantee results for hair we did not source.</li>
-        <li>Wig installs require 72-hour advance drop-off. Hair is non-refundable once service has begun.</li>
-      </ul>
-
-      <h4>05 — Corrections &amp; Refunds</h4>
+      <h4>03 — Corrections &amp; Refunds</h4>
       <ul>
         <li><strong>Before you leave:</strong> Raise concerns at checkout for immediate adjustments.</li>
         <li><strong>Within 48 hours:</strong> Send a photo to (951) 653-4477. We will schedule a correction appointment.</li>
@@ -1101,32 +1033,13 @@ body {
         <li><strong>Refunds:</strong> Reviewed and approved by ownership only. Issued via Zelle. Hair costs are never refunded.</li>
       </ul>
 
-      <h4>06 — Photos &amp; Privacy</h4>
+      <h4>04 — Hair &amp; Materials</h4>
       <ul>
-        <li>Submitted photos retained internally for appointment prep and quality assurance.</li>
-        <li>We do not sell or share your information with third parties.</li>
-        <li>Before/after photos used for marketing only with your explicit consent.</li>
-        <li>CA residents: CCPA rights apply. Contact (951) 653-4477 for requests.</li>
+        <li>Client-provided hair and wigs are used at stylist's discretion. Results cannot be guaranteed for hair we did not source.</li>
+        <li>Wig installs require 72-hour advance drop-off. Hair is non-refundable once service has begun.</li>
+        <li>Liability is limited to the cost of service provided, minus materials used. These terms do not limit your consumer rights under California law.</li>
       </ul>
-
-      <h4>07 — Client Conduct</h4>
-      <ul>
-        <li>Disrespectful or threatening behavior results in immediate service termination. No refund.</li>
-        <li>Arrive with hair detangled and out of protective styles unless takedown is booked.</li>
-        <li>Children are welcome. Parents and guardians are responsible for supervision at all times.</li>
-      </ul>
-
-      <h4>08 — Liability</h4>
-      <ul>
-        <li>Cousin's Styling Studio (Black Sheep Investments LLC) maintains general liability insurance.</li>
-        <li>Results may differ from inspiration photos based on individual hair type, density, and history.</li>
-        <li>We are not liable for reactions to products if sensitivities were not disclosed prior to service.</li>
-        <li>Liability is limited to the cost of service provided, minus materials used.</li>
-        <li>These terms do not limit your consumer rights under California law.</li>
-      </ul>
-
-      <h4>09 — Policy Changes</h4>
-      <p>Terms may be updated at any time at bookcousins.com/terms. Continued use of services constitutes acceptance. v1.0 &middot; May 2026.</p>
+      <p style="font-size:11px;color:#888;font-style:italic;margin-top:8px;">View our complete policies at <a href="https://bookcousins.com/terms" target="_blank" style="color:#C4922A;">bookcousins.com/terms</a></p>
     </div>
   </div>
 
@@ -1160,6 +1073,21 @@ body {
         <a href="mailto:info@bookcousins.com">info@bookcousins.com</a>
       </div>
     </div>
+  </div>
+
+  <!-- ACCOMMODATIONS -->
+  <div class="sec-head">Anything We Should Prepare For?</div>
+  <p style="font-size:12px;color:#555;margin-bottom:10px;">This is one of the things that makes Cousin's different. Select anything that applies so we can take care of you specifically.</p>
+  <div class="check-grid">
+    <label class="check-item"><input type="checkbox" value="sensory"><span>Sensory-Friendly Session</span></label>
+    <label class="check-item"><input type="checkbox" value="mobility"><span>Mobility Accommodation</span></label>
+    <label class="check-item"><input type="checkbox" value="caregiver"><span>Support Person Attending</span></label>
+    <label class="check-item"><input type="checkbox" value="minor"><span>Service for a Minor</span></label>
+    <label class="check-item"><input type="checkbox" value="other_access"><span>Other</span></label>
+  </div>
+  <div class="grid1">
+    <label class="field-label">Anything else we should know to prepare for your visit</label>
+    <textarea class="write-area" id="accessNotes" placeholder="Verbal cues, seating needs, communication preferences, anything that helps us take better care of you..." rows="2"></textarea>
   </div>
 
   <!-- SIGNATURES -->
