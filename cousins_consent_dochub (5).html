@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cousin's Styling Studio — Client Consent Form</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+/* BASE */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --gold: #C4922A;
+  --dark: #1a1a1a;
+  --mid: #333;
+  --soft: #666;
+  --border: #bbb;
+  --light-border: #ddd;
+  --bg: #f7f7f7;
+  --white: #fff;
+}
+
+body {
+  background: #3a3a3a;
+  font-family: 'Jost', sans-serif;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--dark);
+  padding: 24px 16px 60px;
+}
+
+.page {
+  max-width: 780px;
+  margin: 0 auto;
+  background: var(--white);
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+}
+
+/* =====================
+   TOOLBAR — screen only
+   ===================== */
+.toolbar {
+  background: #111;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.toolbar-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  flex-shrink: 0;
+}
+.tbtn {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 7px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1.5px solid #C4922A;
+  color: #C4922A;
+  background: transparent;
+  transition: all .15s;
+}
+.tbtn:hover { background: rgba(196,146,42,.15); }
+.tbtn.active { background: #C4922A; color: #111; }
+.filename-preview {
+  margin-left: auto;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: rgba(255,255,255,.45);
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* =====================
+   DOCUMENT STYLES
+   ===================== */
+.doc {
+  padding: 36px 44px 48px;
+}
+
+/* HEADER */
+.doc-header {
+  border-top: 3px solid #111;
+  border-bottom: 1.5px solid #111;
+  padding: 18px 0 16px;
+  margin-bottom: 28px;
+  text-align: center;
+}
+.doc-header .studio-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: #111;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.doc-header .form-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: #444;
+  margin-top: 4px;
+}
+.doc-header .studio-address {
+  font-size: 10.5px;
+  color: #777;
+  letter-spacing: 1px;
+  margin-top: 5px;
+}
+.doc-header .gold-rule {
+  width: 48px;
+  height: 2px;
+  background: var(--gold);
+  margin: 10px auto;
+}
+
+/* SECTION HEADING */
+.sec-head {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #111;
+  border-bottom: 1px solid #111;
+  padding-bottom: 4px;
+  margin: 24px 0 14px;
+}
+.sec-label {
+  font-size: 9.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin: 18px 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sec-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gold);
+  opacity: .4;
+}
+
+/* FIELDS */
+.field-label {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #555;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 3px;
+}
+.field-label .req { color: #900; }
+
+.write-line {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #999;
+  background: transparent;
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  color: #111;
+  padding: 5px 0 4px;
+  outline: none;
+  border-radius: 0;
+}
+.write-line:focus { border-bottom-color: var(--gold); }
+
+.write-area {
+  width: 100%;
+  border: 1px solid #bbb;
+  background: transparent;
+  font-family: 'Jost', sans-serif;
+  font-size: 12.5px;
+  color: #111;
+  padding: 7px 9px;
+  outline: none;
+  resize: vertical;
+  min-height: 54px;
+  border-radius: 2px;
+}
+.write-area:focus { border-color: var(--gold); }
+
+.field-select {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #999;
+  background: transparent;
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  color: #111;
+  padding: 5px 0 4px;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  border-radius: 0;
+}
+.field-select:focus { border-bottom-color: var(--gold); }
+
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 14px; }
+.grid3 { display: grid; grid-template-columns: 2fr 1fr 1.2fr; gap: 20px; margin-bottom: 14px; }
+.grid1 { margin-bottom: 14px; }
+
+/* CHECKBOXES */
+.check-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 5px;
+  margin-bottom: 12px;
+}
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 6px 10px;
+  cursor: pointer;
+  user-select: none;
+  background: #fff;
+  transition: border-color .1s, background .1s;
+}
+.check-item:hover { border-color: var(--gold); }
+.check-item.on { border-color: var(--gold); background: #FBF5E6; }
+.check-item input[type=checkbox] {
+  width: 13px; height: 13px;
+  accent-color: var(--gold);
+  flex-shrink: 0;
+  border: none; background: none; padding: 0;
+}
+.check-item span { font-size: 11.5px; color: #222; }
+
+/* RADIO */
+.radio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.radio-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 9px 11px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 12px;
+  color: #222;
+  transition: border-color .1s, background .1s;
+}
+.radio-item:hover { border-color: var(--gold); }
+.radio-item.on { border-color: var(--gold); background: #FBF5E6; font-weight: 600; }
+.radio-item input[type=radio] {
+  width: 12px; height: 12px;
+  accent-color: var(--gold);
+  flex-shrink: 0;
+  border: none; background: none; padding: 0;
+}
+
+/* WIG NOTICE */
+.wig-notice {
+  display: none;
+  background: #FFFAEE;
+  border: 1px solid #C4922A;
+  border-radius: 3px;
+  padding: 12px 15px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #333;
+}
+.wig-notice.show { display: block; }
+.wig-notice ul { padding-left: 16px; margin: 6px 0 10px; }
+.wig-notice ul li { margin-bottom: 4px; }
+
+/* RISK ROWS */
+.risk-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  background: #fafafa;
+}
+.risk-text { flex: 1; font-size: 12px; color: #222; line-height: 1.6; }
+.risk-initial-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.risk-initial-wrap .ri-label {
+  font-size: 8.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #888;
+}
+.risk-initial {
+  width: 52px;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid #999;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 3px 0;
+  background: transparent;
+  font-family: 'Jost', sans-serif;
+  outline: none;
+}
+
+/* POLICY CARDS */
+.policy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.policy-card {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 10px 12px;
+}
+.policy-card .pc-title {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: #111;
+  margin-bottom: 4px;
+}
+.policy-card p { font-size: 11.5px; color: #444; }
+
+/* TERMS SCROLL */
+.terms-box {
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.terms-header {
+  background: #f2f2f2;
+  border-bottom: 1px solid #bbb;
+  padding: 9px 14px;
+  font-size: 9.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #444;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.terms-header a { font-size: 11px; color: var(--gold); text-decoration: none; }
+.terms-body {
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 14px 16px;
+  font-size: 11.5px;
+  color: #333;
+  line-height: 1.75;
+}
+.terms-body h4 {
+  font-size: 12px;
+  font-weight: 700;
+  color: #111;
+  margin: 12px 0 4px;
+}
+.terms-body h4:first-child { margin-top: 0; }
+.terms-body ul { padding-left: 15px; margin-bottom: 8px; }
+.terms-body ul li { margin-bottom: 3px; }
+.terms-body p { margin-bottom: 7px; }
+.terms-body table { width: 100%; border-collapse: collapse; font-size: 11px; margin: 6px 0 10px; }
+.terms-body table th { background: #f2f2f2; padding: 5px 8px; text-align: left; font-weight: 600; border: 1px solid #ccc; }
+.terms-body table td { padding: 5px 8px; border: 1px solid #ccc; }
+.terms-body table tr:nth-child(even) td { background: #fafafa; }
+
+/* PRICING */
+.price-section {
+  border: 1.5px solid #111;
+  border-radius: 3px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+}
+.price-section .ps-title {
+  font-size: 9.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 14px;
+}
+.price-fields { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.pf { display: flex; flex-direction: column; gap: 4px; }
+.pf .pf-label { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: #666; font-weight: 600; }
+.pf input {
+  border: none;
+  border-bottom: 1.5px solid #999;
+  font-family: 'Jost', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #111;
+  padding: 4px 0;
+  background: transparent;
+  outline: none;
+  width: 100%;
+}
+.pf input:focus { border-bottom-color: var(--gold); }
+.pf input::placeholder { color: #ccc; font-size: 14px; font-weight: 400; }
+.pf .pf-hint { font-size: 10px; color: #999; font-style: italic; }
+.payment-row { display: flex; flex-direction: column; gap: 7px; margin-bottom: 14px; }
+.pay-line { display: flex; align-items: center; gap: 10px; }
+.pay-lbl { font-size: 11px; font-weight: 600; color: #333; width: 72px; flex-shrink: 0; }
+.pay-input {
+  flex: 1;
+  border: none;
+  border-bottom: 1px solid #999;
+  font-family: 'Jost', sans-serif;
+  font-size: 12.5px;
+  color: #111;
+  padding: 4px 0;
+  background: transparent;
+  outline: none;
+}
+.pay-input:focus { border-bottom-color: var(--gold); }
+.pay-input::placeholder { color: #bbb; }
+
+/* ACK CHECKBOXES */
+.ack-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 11px 13px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background: #fafafa;
+}
+.ack-row input[type=checkbox] {
+  width: 14px; height: 14px;
+  accent-color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 2px;
+  border: none; background: none; padding: 0;
+}
+.ack-row span { font-size: 12px; color: #222; line-height: 1.65; }
+.ack-row.err-ack { border-color: #900; background: #fff5f5; }
+
+/* CONSENT STATEMENT */
+.consent-statement {
+  border-left: 3px solid #111;
+  padding: 12px 16px;
+  font-size: 12px;
+  color: #222;
+  line-height: 1.75;
+  margin-bottom: 20px;
+  background: #fafafa;
+}
+
+/* SIGNATURES */
+.sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 12px; }
+.sig-block .sig-lbl { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #666; font-weight: 600; margin-bottom: 5px; }
+.sigpad {
+  width: 100%;
+  height: 80px;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  background: #fff;
+  cursor: crosshair;
+  display: block;
+  touch-action: none;
+}
+.sig-print-img {
+  display: none;
+  width: 100%;
+  height: 80px;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  object-fit: contain;
+  background: #fff;
+}
+/* shown in blank print mode */
+.sig-blank-box {
+  display: none;
+  width: 100%;
+  height: 80px;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  background: #fff;
+}
+.sig-clear {
+  font-size: 10.5px; color: #888; background: none; border: none;
+  cursor: pointer; text-decoration: underline; padding: 3px 0;
+  font-family: 'Jost', sans-serif; margin-top: 3px; display: inline-block;
+}
+.sig-clear:hover { color: #900; }
+.sig-date { margin-top: 10px; }
+
+/* PHOTO UPLOAD */
+.photo-block {
+  border: 1.5px dashed #bbb;
+  border-radius: 3px;
+  padding: 12px 14px;
+  margin-top: 4px;
+}
+.photo-btn {
+  background: #111;
+  color: #fff;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.photo-preview { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.photo-thumb { position: relative; display: inline-block; }
+.photo-thumb img { width: 64px; height: 64px; object-fit: cover; border-radius: 3px; border: 1px solid #ccc; }
+.photo-remove {
+  position: absolute; top: -5px; right: -5px;
+  background: #900; color: #fff; border: none; border-radius: 50%;
+  width: 16px; height: 16px; font-size: 10px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* FILENAME BLOCK */
+.filename-block {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  background: #f9f9f9;
+}
+.filename-block .fb-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #888; font-weight: 600; margin-bottom: 5px; }
+.filename-block .fb-value {
+  font-family: 'Courier New', monospace;
+  font-size: 12.5px;
+  color: #111;
+  font-weight: 600;
+}
+
+/* ERROR BANNER */
+.err-banner {
+  display: none;
+  background: #fff5f5;
+  border: 1px solid #900;
+  color: #900;
+  border-radius: 3px;
+  padding: 9px 14px;
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* DOCUMENT FOOTER */
+.doc-footer {
+  border-top: 1px solid #ccc;
+  padding-top: 12px;
+  margin-top: 8px;
+  font-size: 10px;
+  color: #999;
+  text-align: center;
+  letter-spacing: .5px;
+}
+
+/* =====================
+   PRINT STYLES
+   ===================== */
+@media print {
+  body { background: #fff; padding: 0; }
+  .page { box-shadow: none; }
+  .toolbar { display: none !important; }
+  .no-print { display: none !important; }
+  .filename-block { display: none !important; }
+  .err-banner { display: none !important; }
+  .terms-body { max-height: none !important; overflow: visible !important; }
+  .photo-block { display: none !important; }
+
+  /* Expand all term sections */
+  .terms-body { max-height: none !important; }
+
+  /* Signature: completed mode shows image, blank mode shows empty box */
+  body.mode-completed .sigpad { display: none !important; }
+  body.mode-completed .sig-print-img { display: block !important; }
+  body.mode-completed .sig-blank-box { display: none !important; }
+
+  body.mode-blank .sigpad { display: none !important; }
+  body.mode-blank .sig-print-img { display: none !important; }
+  body.mode-blank .sig-blank-box { display: block !important; }
+
+  /* Blank mode: hide all input values */
+  body.mode-blank input[type=text],
+  body.mode-blank input[type=tel],
+  body.mode-blank input[type=date],
+  body.mode-blank input[type=email],
+  body.mode-blank .write-line,
+  body.mode-blank .risk-initial,
+  body.mode-blank .pf input,
+  body.mode-blank .pay-input {
+    color: transparent !important;
+  }
+  body.mode-blank .write-area {
+    color: transparent !important;
+    min-height: 48px !important;
+  }
+  body.mode-blank .field-select {
+    color: transparent !important;
+  }
+  body.mode-blank .check-item.on {
+    background: #fff !important;
+    border-color: #ccc !important;
+  }
+  body.mode-blank .radio-item.on {
+    background: #fff !important;
+    border-color: #ccc !important;
+    font-weight: 400 !important;
+  }
+  body.mode-blank .wig-notice { display: none !important; }
+}
+
+/* PREFILL BANNER */
+.prefill-banner {
+  display: none;
+  background: #F5F0E8;
+  border: 1.5px solid #C4922A;
+  border-radius: 3px;
+  padding: 12px 16px;
+  margin-bottom: 18px;
+  gap: 10px;
+  align-items: flex-start;
+}
+.prefill-banner.show { display: flex; }
+.prefill-banner .pb-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.prefill-banner .pb-text { flex: 1; }
+.prefill-banner .pb-text strong {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #C4922A;
+  margin-bottom: 3px;
+}
+.prefill-banner .pb-text p {
+  font-size: 12px;
+  color: #444;
+  line-height: 1.6;
+}
+.prefill-banner .pb-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 7px;
+}
+.prefill-banner .pb-tag {
+  background: #fff;
+  border: 1px solid #C4922A;
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 11px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* FINAL STEP INSTRUCTION CARD */
+.final-step-card {
+  border: 2px solid #111;
+  border-radius: 3px;
+  padding: 20px 24px;
+  margin-bottom: 22px;
+  background: #fff;
+  position: relative;
+}
+.final-step-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 5px;
+  height: 100%;
+  background: #C4922A;
+  border-radius: 3px 0 0 3px;
+}
+.final-step-card .fsc-eyebrow {
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #C4922A;
+  margin-bottom: 6px;
+}
+.final-step-card .fsc-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 12px;
+}
+.final-step-card .fsc-steps {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.final-step-card .fsc-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  font-size: 12.5px;
+  color: #222;
+  line-height: 1.6;
+}
+.final-step-card .fsc-steps li .step-n {
+  background: #111;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.final-step-card .fsc-contacts {
+  border-top: 1px solid #ddd;
+  padding-top: 14px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.final-step-card .fsc-contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.final-step-card .fsc-contact-item .fsc-contact-label {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #888;
+}
+.final-step-card .fsc-contact-item a {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+  text-decoration: none;
+}
+.final-step-card .fsc-contact-item a:hover { color: #C4922A; }
+
+/* Responsive */
+@media (max-width: 520px) {
+  .grid2, .grid3 { grid-template-columns: 1fr; }
+  .sig-grid { grid-template-columns: 1fr; }
+  .price-fields { grid-template-columns: 1fr; }
+  .policy-grid { grid-template-columns: 1fr; }
+  .doc { padding: 20px 18px 32px; }
+}
+</style>
+</head>
+<body class="mode-completed">
+<div class="page">
+
+<!-- TOOLBAR (screen only) -->
+<div class="toolbar no-print">
+  <span class="toolbar-label">Save as:</span>
+  <button class="tbtn active" id="btnCompleted" onclick="setMode('completed')">Completed Form</button>
+  <button class="tbtn" id="btnBlank" onclick="setMode('blank')">Blank Master</button>
+  <button class="tbtn" onclick="doPrint()" style="margin-left:8px; border-color:#fff; color:#fff;">Print / Save PDF</button>
+  <div class="filename-preview" id="fnPreview">cousins_consent_form.pdf</div>
+</div>
+
+<div class="doc">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="studio-name">Cousin's Styling Studio</div>
+    <div class="gold-rule"></div>
+    <div class="form-title">Color &amp; Chemical Services — Prepared Client Agreement</div>
+    <div class="studio-address">22700 Alessandro Blvd STE A &nbsp;&middot;&nbsp; Moreno Valley, CA 92553 &nbsp;&middot;&nbsp; (951) 653-4477</div>
+  </div>
+
+  <!-- FILENAME (screen only) -->
+  <div class="filename-block no-print" id="filenameBlock">
+    <div class="fb-label">Suggested filename for DocHub / Google Drive</div>
+    <div class="fb-value" id="filenameDisplay">Enter name and date below to generate</div>
+  </div>
+
+  <!-- PREFILL BANNER (shown only when URL params are present) -->
+  <div class="prefill-banner no-print" id="prefillBanner">
+    <div class="pb-icon">&#9733;</div>
+    <div class="pb-text">
+      <strong>This form was prepared for your appointment</strong>
+      <p>Your stylist has pre-filled some details below. Please review everything, complete the remaining fields, and sign.</p>
+      <div class="pb-fields" id="prefillTags"></div>
+    </div>
+  </div>
+
+  <!-- CLIENT DETAILS -->
+  <div class="sec-head">Client Details</div>
+  <div class="grid3">
+    <div>
+      <label class="field-label">Your Name <span class="req">*</span></label>
+      <input class="write-line" type="text" id="cName" placeholder="First and last name" oninput="updateFilename()">
+    </div>
+    <div>
+      <label class="field-label">Best Phone Number <span class="req">*</span></label>
+      <input class="write-line" type="tel" id="cPhone" placeholder="(555) 000-0000">
+    </div>
+    <div>
+      <label class="field-label">Appointment Date <span class="req">*</span></label>
+      <input class="write-line" type="date" id="cDate" oninput="updateFilename()">
+    </div>
+  </div>
+
+  <!-- SCHEDULED SERVICE -->
+  <div class="sec-head">Your Scheduled Service</div>
+
+  <div class="sec-label">What Are We Doing Today? <span style="color:#900;margin-left:3px;">*</span></div>
+  <p style="font-size:11.5px;color:#666;margin-bottom:8px;">Select all that apply.</p>
+  <div class="check-grid" id="svcGrid">
+    <label class="check-item"><input type="checkbox" value="color_gloss"><span>Color / Gloss</span></label>
+    <label class="check-item"><input type="checkbox" value="highlights"><span>Highlights / Lowlights</span></label>
+    <label class="check-item"><input type="checkbox" value="bleach_tone"><span>Bleach &amp; Tone</span></label>
+    <label class="check-item"><input type="checkbox" value="color_correct"><span>Color Correction</span></label>
+    <label class="check-item"><input type="checkbox" value="relaxer"><span>Relaxer</span></label>
+    <label class="check-item"><input type="checkbox" value="keratin"><span>Keratin / Smoothing</span></label>
+    <label class="check-item"><input type="checkbox" value="box_braids"><span>Box Braids</span></label>
+    <label class="check-item"><input type="checkbox" value="knotless"><span>Knotless Braids</span></label>
+    <label class="check-item"><input type="checkbox" value="cornrows"><span>Cornrows</span></label>
+    <label class="check-item"><input type="checkbox" value="faux_locs"><span>Faux Locs</span></label>
+    <label class="check-item"><input type="checkbox" value="twists"><span>Twists</span></label>
+    <label class="check-item"><input type="checkbox" value="feedin"><span>Feed-In / Stitch Braids</span></label>
+    <label class="check-item"><input type="checkbox" value="loc_starter"><span>Loc Starter</span></label>
+    <label class="check-item"><input type="checkbox" value="loc_retwist"><span>Loc Retwist</span></label>
+    <label class="check-item"><input type="checkbox" value="loc_style"><span>Loc Style &amp; Maintenance</span></label>
+    <label class="check-item"><input type="checkbox" value="silk_press"><span>Silk Press</span></label>
+    <label class="check-item"><input type="checkbox" value="blowout"><span>Blowout</span></label>
+    <label class="check-item"><input type="checkbox" value="natural_style"><span>Natural Hair Styling</span></label>
+    <label class="check-item"><input type="checkbox" value="haircut"><span>Haircut (all textures)</span></label>
+    <label class="check-item"><input type="checkbox" value="fade_taper"><span>Fade / Taper</span></label>
+    <label class="check-item"><input type="checkbox" value="shapeup"><span>Shape-Up / Edge-Up</span></label>
+    <label class="check-item"><input type="checkbox" value="beard"><span>Beard Trim &amp; Shape</span></label>
+    <label class="check-item"><input type="checkbox" value="wig_install"><span>Wig Install</span></label>
+    <label class="check-item"><input type="checkbox" value="wig_custom"><span>Wig Customization</span></label>
+    <label class="check-item"><input type="checkbox" value="sensory_svc"><span>Sensory-Friendly Session</span></label>
+    <label class="check-item"><input type="checkbox" value="other_svc"><span>Other / Not Listed</span></label>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <label class="field-label">Where Is This Taking Place?</label>
+      <select class="field-select" id="apptType">
+        <option value="">Select...</option>
+        <option>In-Studio</option>
+        <option>Mobile — Corporate / Charity</option>
+        <option>Mobile — Wedding / Private Event</option>
+        <option>Mobile — Film / TV / Photo Set</option>
+        <option>Mobile — Elderly / Assisted Care</option>
+        <option>Mobile — School / Community</option>
+        <option>Mobile — Luxury / Pop-Up</option>
+      </select>
+    </div>
+    <div>
+      <label class="field-label">Estimated Duration</label>
+      <select class="field-select" id="apptDuration">
+        <option value="">Select...</option>
+        <option>Under 1 hour</option>
+        <option>1 – 2 hours</option>
+        <option>2 – 3 hours</option>
+        <option>3 – 4 hours</option>
+        <option>4 – 6 hours</option>
+        <option>6+ hours</option>
+        <option>Not sure</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid1">
+    <label class="field-label">Tell Us What You're Envisioning</label>
+    <textarea class="write-area" id="svcDescription" placeholder="Style, length, technique, inspiration..." rows="3"></textarea>
+  </div>
+
+  <div class="photo-block no-print">
+    <div style="font-size:12px;font-weight:600;color:#222;margin-bottom:6px;">Reference Photos <span style="font-weight:400;color:#777;">(optional)</span></div>
+    <div style="font-size:11px;color:#777;margin-bottom:8px;">Up to 5 images for reference.</div>
+    <input type="file" id="refPhoto" accept="image/*" multiple style="display:none;" onchange="handlePhotoUpload(event)">
+    <button type="button" class="photo-btn" onclick="document.getElementById('refPhoto').click()">Choose Photos</button>
+    <div id="photoPreview" class="photo-preview"></div>
+  </div>
+
+  <!-- ACCOMMODATIONS -->
+  <div class="sec-head">Accommodations &amp; Accessibility</div>
+  <p style="font-size:12px;color:#555;margin-bottom:10px;">Let us know what you need so we can prepare specifically for you.</p>
+  <div class="check-grid">
+    <label class="check-item"><input type="checkbox" value="sensory"><span>Sensory-Friendly Session</span></label>
+    <label class="check-item"><input type="checkbox" value="mobility"><span>Mobility Accommodation</span></label>
+    <label class="check-item"><input type="checkbox" value="low_stim"><span>Low Stimulation Environment</span></label>
+    <label class="check-item"><input type="checkbox" value="extra_time"><span>Extended Appointment Time</span></label>
+    <label class="check-item"><input type="checkbox" value="caregiver"><span>Caregiver / Support Person</span></label>
+    <label class="check-item"><input type="checkbox" value="minor"><span>Service for a Minor</span></label>
+    <label class="check-item"><input type="checkbox" value="none_a"><span>No Accommodations Needed</span></label>
+  </div>
+  <div class="grid1">
+    <label class="field-label">Communication preferences or anything else we should know</label>
+    <textarea class="write-area" id="accessNotes" placeholder="Verbal cues, seating needs, preferred communication style..." rows="2"></textarea>
+  </div>
+
+  <!-- HAIR HISTORY -->
+  <div class="sec-head">Hair History</div>
+  <p style="font-size:12px;color:#555;margin-bottom:10px;">Check everything that applies, even if it was a long time ago.</p>
+
+  <div class="sec-label">Previous Chemical Treatments</div>
+  <div class="check-grid" id="chemGrid">
+    <label class="check-item"><input type="checkbox" value="bleach"><span>Bleach / Lightener</span></label>
+    <label class="check-item"><input type="checkbox" value="boxdye"><span>Box / Store Dye</span></label>
+    <label class="check-item"><input type="checkbox" value="relaxer"><span>Relaxer / Perm</span></label>
+    <label class="check-item"><input type="checkbox" value="keratin"><span>Keratin Treatment</span></label>
+    <label class="check-item"><input type="checkbox" value="henna"><span>Henna / Indigo</span></label>
+    <label class="check-item"><input type="checkbox" value="extensions"><span>Extensions / Adhesive</span></label>
+    <label class="check-item"><input type="checkbox" value="procolor"><span>Professional Color</span></label>
+    <label class="check-item"><input type="checkbox" value="none_c"><span>None</span></label>
+  </div>
+
+  <div class="sec-label">Scalp &amp; Health</div>
+  <div class="check-grid" id="scalpGrid">
+    <label class="check-item"><input type="checkbox" value="sensitivity"><span>Scalp Sensitivity</span></label>
+    <label class="check-item"><input type="checkbox" value="alopecia"><span>Alopecia</span></label>
+    <label class="check-item"><input type="checkbox" value="eczema"><span>Eczema / Psoriasis</span></label>
+    <label class="check-item"><input type="checkbox" value="meds"><span>Medication Affecting Hair</span></label>
+    <label class="check-item"><input type="checkbox" value="allergies"><span>Known Allergies</span></label>
+    <label class="check-item"><input type="checkbox" value="none_s"><span>None</span></label>
+  </div>
+
+  <div class="grid1">
+    <label class="field-label">Allergies, Sensitivities, or Medications</label>
+    <textarea class="write-area" id="allergyNotes" placeholder="Product names, ingredients, past reactions — even mild ones..." rows="2"></textarea>
+  </div>
+
+  <!-- SERVICE APPLICATION -->
+  <div class="sec-head">Where Are We Working?</div>
+  <div class="radio-grid" id="appTarget">
+    <label class="radio-item"><input type="radio" name="app" value="natural"> My Natural Hair</label>
+    <label class="radio-item"><input type="radio" name="app" value="wig"> A Wig</label>
+    <label class="radio-item"><input type="radio" name="app" value="both"> Both</label>
+    <label class="radio-item"><input type="radio" name="app" value="unsure"> Not Sure Yet</label>
+  </div>
+
+  <div class="wig-notice" id="wigNotice">
+    <strong style="font-size:11px;letter-spacing:1px;text-transform:uppercase;">Wig Drop-Off Requirements</strong>
+    <ul>
+      <li>Drop off at least 72 hours before your appointment when prep or customization is needed.</li>
+      <li>Late drop-off may result in adjusted service or rescheduling.</li>
+      <li>Final results depend on the wig's quality, density, lace type, and prior processing.</li>
+    </ul>
+    <label class="check-item" style="margin-top:4px;">
+      <input type="checkbox" id="wigAck">
+      <span>I understand the wig drop-off requirements.</span>
+    </label>
+  </div>
+
+  <!-- RISKS -->
+  <div class="sec-head">Risks — Please Initial Each Item</div>
+  <p style="font-size:12px;color:#555;margin-bottom:12px;">Initial next to each item to confirm you have read it.</p>
+
+  <div class="risk-row">
+    <div class="risk-text"><strong>Scalp Sensitivity or Reaction:</strong> Chemical services can cause irritation even without prior history. Tell us immediately if anything feels uncomfortable.</div>
+    <div class="risk-initial-wrap"><span class="ri-label">Initials</span><input type="text" class="risk-initial" maxlength="4" placeholder="____"></div>
+  </div>
+  <div class="risk-row">
+    <div class="risk-text"><strong>Hair Strength &amp; Structure:</strong> Chemical services may affect hair integrity. We assess condition first and will recommend adjustments if needed.</div>
+    <div class="risk-initial-wrap"><span class="ri-label">Initials</span><input type="text" class="risk-initial" maxlength="4" placeholder="____"></div>
+  </div>
+  <div class="risk-row">
+    <div class="risk-text"><strong>Texture &amp; Curl Pattern:</strong> Some services may shift curl pattern or texture temporarily or permanently.</div>
+    <div class="risk-initial-wrap"><span class="ri-label">Initials</span><input type="text" class="risk-initial" maxlength="4" placeholder="____"></div>
+  </div>
+  <div class="risk-row">
+    <div class="risk-text"><strong>Color Variability:</strong> Porosity and prior treatments affect how color absorbs. Results may vary from inspiration photos.</div>
+    <div class="risk-initial-wrap"><span class="ri-label">Initials</span><input type="text" class="risk-initial" maxlength="4" placeholder="____"></div>
+  </div>
+  <div class="risk-row">
+    <div class="risk-text"><strong>Multiple Sessions:</strong> Some results require more than one appointment to protect hair integrity.</div>
+    <div class="risk-initial-wrap"><span class="ri-label">Initials</span><input type="text" class="risk-initial" maxlength="4" placeholder="____"></div>
+  </div>
+
+  <!-- PROTECTIONS SUMMARY -->
+  <div class="sec-head">How We Protect Both of Us</div>
+  <div class="policy-grid">
+    <div class="policy-card"><div class="pc-title">Our Right to Pause or Decline</div><p>If hair or scalp isn't suitable for the service, we'll be direct and help you plan accordingly.</p></div>
+    <div class="policy-card"><div class="pc-title">Shared Responsibility</div><p>Outcomes from undisclosed history fall outside our responsibility. We stand behind our process.</p></div>
+    <div class="policy-card"><div class="pc-title">Aftercare Is Part of the Service</div><p>Your stylist will walk you through aftercare before you leave. Following it protects your results.</p></div>
+    <div class="policy-card"><div class="pc-title">Honesty Goes Both Ways</div><p>Everything shared here is accurate to the best of your knowledge. No hidden charges on our end.</p></div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="sec-head">Service Price &amp; Deposit</div>
+  <div class="price-section">
+    <div class="ps-title">Your Investment — No Surprises at Checkout</div>
+    <div class="price-fields">
+      <div class="pf">
+        <span class="pf-label">Total Service Price</span>
+        <input type="text" id="svcPrice" placeholder="$0.00">
+        <span class="pf-hint">All-in, no hidden fees</span>
+      </div>
+      <div class="pf">
+        <span class="pf-label">Deposit Amount</span>
+        <input type="text" id="depositAmt" placeholder="$0.00">
+        <span class="pf-hint">Applied toward your total</span>
+      </div>
+      <div class="pf">
+        <span class="pf-label">Balance Due at Appointment</span>
+        <input type="text" id="balanceAmt" placeholder="Auto-calculated" readonly style="cursor:default;color:#888;">
+        <span class="pf-hint">Due at checkout</span>
+      </div>
+    </div>
+    <div style="font-size:9.5px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:#555;margin-bottom:8px;">Send Deposit To</div>
+    <div class="payment-row">
+      <div class="pay-line"><span class="pay-lbl">Venmo</span><input class="pay-input" type="text" id="payVenmo" placeholder="@handle or N/A"></div>
+      <div class="pay-line"><span class="pay-lbl">Cash App</span><input class="pay-input" type="text" id="payCashapp" placeholder="$cashtag or N/A"></div>
+      <div class="pay-line"><span class="pay-lbl">Zelle</span><input class="pay-input" type="text" id="payZelle" placeholder="Phone or email or N/A"></div>
+    </div>
+    <p style="font-size:11px;color:#777;font-style:italic;margin-bottom:12px;">Send payment and a screenshot to confirm your appointment. Zelle: (951) 653-4477 — shows as Black Sheep Investments.</p>
+    <label class="ack-row" id="priceAckWrap">
+      <input type="checkbox" id="priceAck">
+      <span>I have reviewed the total price, deposit, and balance due. I understand the deposit is non-refundable if I cancel within 48 hours of my appointment.</span>
+    </label>
+  </div>
+
+  <!-- TERMS -->
+  <div class="sec-head">Service Policies</div>
+  <div class="terms-box">
+    <div class="terms-header">
+      <span>Cousin's Styling Studio — Policy v1.0 &nbsp;&middot;&nbsp; May 2026</span>
+      <a href="https://bookcousins.com/terms" target="_blank">Full policy &rarr;</a>
+    </div>
+    <div class="terms-body">
+      <h4>01 — Deposits</h4>
+      <p>Required for all services over $50. Applied toward your total at checkout.</p>
+      <table>
+        <tr><th>Situation</th><th>Policy</th></tr>
+        <tr><td>Cancel 24+ hours ahead</td><td>Deposit transfers to rescheduled appointment.</td></tr>
+        <tr><td>Cancel under 24 hours</td><td>Deposit retained for stylist's reserved time.</td></tr>
+        <tr><td>No-show, no contact</td><td>Deposit forfeited. Appointment released after 15 min.</td></tr>
+        <tr><td>Studio cancels</td><td>Full refund issued.</td></tr>
+        <tr><td>Full payment at deposit</td><td>Accepted via Zelle. Balance waived.</td></tr>
+      </table>
+
+      <h4>02 — Cancellations &amp; No-Shows</h4>
+      <ul>
+        <li>24+ hours notice: deposit transfers to future booking.</li>
+        <li>Under 24 hours: deposit retained as cancellation fee.</li>
+        <li>No-show: deposit forfeited in full.</li>
+        <li>Repeat no-shows may require full prepayment to rebook.</li>
+      </ul>
+      <p style="font-size:11px;color:#888;font-style:italic;">Cancel via call or text to (951) 653-4477. Third-party app cancellations do not protect your deposit.</p>
+
+      <h4>03 — Late Arrivals</h4>
+      <table>
+        <tr><th>Arrival</th><th>What to Expect</th></tr>
+        <tr><td>On time</td><td>We are ready for you.</td></tr>
+        <tr><td>Under 15 min, communicated</td><td>We will do our best to accommodate.</td></tr>
+        <tr><td>15+ minutes late</td><td>$20 late fee. Appointment may be rescheduled.</td></tr>
+        <tr><td>No contact after 15 min</td><td>Appointment released. Deposit applied to reserved time.</td></tr>
+      </table>
+
+      <h4>04 — Hair &amp; Materials</h4>
+      <ul>
+        <li>Standard dark brown braiding hair (26" and 40") included in applicable service pricing.</li>
+        <li>Special hair may be brought by client or sourced by studio. Sourced hair requires a separate deposit before ordering.</li>
+        <li>Client-provided hair used at stylist's discretion. We cannot guarantee results for hair we did not source.</li>
+        <li>Wig installs require 72-hour advance drop-off. Hair is non-refundable once service has begun.</li>
+      </ul>
+
+      <h4>05 — Corrections &amp; Refunds</h4>
+      <ul>
+        <li><strong>Before you leave:</strong> Raise concerns at checkout for immediate adjustments.</li>
+        <li><strong>Within 48 hours:</strong> Send a photo to (951) 653-4477. We will schedule a correction appointment.</li>
+        <li><strong>After 48 hours:</strong> Refund eligibility is significantly limited.</li>
+        <li><strong>Refunds:</strong> Reviewed and approved by ownership only. Issued via Zelle. Hair costs are never refunded.</li>
+      </ul>
+
+      <h4>06 — Photos &amp; Privacy</h4>
+      <ul>
+        <li>Submitted photos retained internally for appointment prep and quality assurance.</li>
+        <li>We do not sell or share your information with third parties.</li>
+        <li>Before/after photos used for marketing only with your explicit consent.</li>
+        <li>CA residents: CCPA rights apply. Contact (951) 653-4477 for requests.</li>
+      </ul>
+
+      <h4>07 — Client Conduct</h4>
+      <ul>
+        <li>Disrespectful or threatening behavior results in immediate service termination. No refund.</li>
+        <li>Arrive with hair detangled and out of protective styles unless takedown is booked.</li>
+        <li>Children are welcome. Parents and guardians are responsible for supervision at all times.</li>
+      </ul>
+
+      <h4>08 — Liability</h4>
+      <ul>
+        <li>Cousin's Styling Studio (Black Sheep Investments LLC) maintains general liability insurance.</li>
+        <li>Results may differ from inspiration photos based on individual hair type, density, and history.</li>
+        <li>We are not liable for reactions to products if sensitivities were not disclosed prior to service.</li>
+        <li>Liability is limited to the cost of service provided, minus materials used.</li>
+        <li>These terms do not limit your consumer rights under California law.</li>
+      </ul>
+
+      <h4>09 — Policy Changes</h4>
+      <p>Terms may be updated at any time at bookcousins.com/terms. Continued use of services constitutes acceptance. v1.0 &middot; May 2026.</p>
+    </div>
+  </div>
+
+  <label class="ack-row" id="termsAckWrap">
+    <input type="checkbox" id="termsAck">
+    <span>I have read and agree to Cousin's Styling Studio's Service Policies — Policy v1.0, May 2026.</span>
+  </label>
+
+  <!-- CONSENT -->
+  <div class="sec-head" style="margin-top:20px;">Consent</div>
+  <div class="consent-statement">
+    I have read this form completely and I am ready to move forward. I agree to hold <strong>Cousin's Styling Studio, its owners, staff, contractors, and assigned stylist</strong> harmless for outcomes caused by factors outside their professional control or information I did not disclose prior to service.
+  </div>
+
+  <!-- FINAL STEP -->
+  <div class="final-step-card">
+    <div class="fsc-eyebrow">Almost Done</div>
+    <div class="fsc-title">Final Step Before Your Appointment</div>
+    <ul class="fsc-steps">
+      <li><span class="step-n">1</span> Select <strong>Print / Save PDF</strong> using the button at the top of this page.</li>
+      <li><span class="step-n">2</span> Save the completed form to your device.</li>
+      <li><span class="step-n">3</span> Send the completed PDF back to Cousin's Styling Studio by text or email <strong>before your appointment.</strong></li>
+    </ul>
+    <div class="fsc-contacts">
+      <div class="fsc-contact-item">
+        <span class="fsc-contact-label">Text or Call</span>
+        <a href="tel:+19516534477">(951) 653-4477</a>
+      </div>
+      <div class="fsc-contact-item">
+        <span class="fsc-contact-label">Email</span>
+        <a href="mailto:info@bookcousins.com">info@bookcousins.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIGNATURES -->
+  <div class="sec-head">Signatures</div>
+  <div class="err-banner" id="errBanner">Please complete all required fields, initials, acknowledgments, and both signatures.</div>
+
+  <div class="sig-grid">
+    <div class="sig-block">
+      <div class="sig-lbl">Client Signature <span style="color:#900;">*</span></div>
+      <canvas class="sigpad" id="cSig" width="320" height="80"></canvas>
+      <img class="sig-print-img" id="cSigImg" alt="Client Signature">
+      <div class="sig-blank-box"></div>
+      <button type="button" class="sig-clear no-print" onclick="clearSig('cSig','cSigImg')">Clear</button>
+      <div class="sig-date">
+        <label class="field-label">Date Signed <span class="req">*</span></label>
+        <input class="write-line" type="date" id="cSigDate">
+      </div>
+    </div>
+    <div class="sig-block">
+      <div class="sig-lbl">Stylist Signature <span style="color:#900;">*</span></div>
+      <canvas class="sigpad" id="sSig" width="320" height="80"></canvas>
+      <img class="sig-print-img" id="sSigImg" alt="Stylist Signature">
+      <div class="sig-blank-box"></div>
+      <button type="button" class="sig-clear no-print" onclick="clearSig('sSig','sSigImg')">Clear</button>
+      <div class="sig-date">
+        <label class="field-label">Stylist Name</label>
+        <input class="write-line" type="text" id="sName" placeholder="Full name">
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    Black Sheep Investments LLC DBA Cousin's Styling Studio &nbsp;&middot;&nbsp; Policy v1.0, May 2026 &nbsp;&middot;&nbsp; bookcousins.com
+  </div>
+
+</div><!-- end .doc -->
+</div><!-- end .page -->
+
+<script>
+// Checkbox highlight
+document.querySelectorAll('.check-item').forEach(item => {
+  const inp = item.querySelector('input[type=checkbox]');
+  if (!inp) return;
+  inp.addEventListener('change', () => item.classList.toggle('on', inp.checked));
+});
+
+// Radio cards
+document.querySelectorAll('.radio-item').forEach(card => {
+  const inp = card.querySelector('input[type=radio]');
+  card.addEventListener('click', () => {
+    document.querySelectorAll('.radio-item').forEach(c => c.classList.remove('on'));
+    card.classList.add('on');
+    inp.checked = true;
+    const notice = document.getElementById('wigNotice');
+    notice.classList.toggle('show', inp.value === 'wig' || inp.value === 'both');
+  });
+});
+
+// Signature pads
+function initPad(id, imgId) {
+  const c = document.getElementById(id);
+  const ctx = c.getContext('2d');
+  let drawing = false, drawn = false;
+  function pos(e) {
+    const r = c.getBoundingClientRect();
+    const sx = c.width / r.width, sy = c.height / r.height;
+    if (e.touches) return { x:(e.touches[0].clientX-r.left)*sx, y:(e.touches[0].clientY-r.top)*sy };
+    return { x:(e.clientX-r.left)*sx, y:(e.clientY-r.top)*sy };
+  }
+  function sync() {
+    const img = document.getElementById(imgId);
+    if (img && drawn) img.src = c.toDataURL('image/png');
+  }
+  c.addEventListener('mousedown', e => { e.preventDefault(); drawing=true; ctx.beginPath(); const p=pos(e); ctx.moveTo(p.x,p.y); });
+  c.addEventListener('mousemove', e => { if(!drawing)return; const p=pos(e); ctx.lineWidth=1.8; ctx.lineCap='round'; ctx.strokeStyle='#111'; ctx.lineTo(p.x,p.y); ctx.stroke(); drawn=true; });
+  c.addEventListener('mouseup', () => { drawing=false; sync(); });
+  c.addEventListener('mouseleave', () => drawing=false);
+  c.addEventListener('touchstart', e => { e.preventDefault(); drawing=true; ctx.beginPath(); const p=pos(e); ctx.moveTo(p.x,p.y); }, {passive:false});
+  c.addEventListener('touchmove', e => { e.preventDefault(); if(!drawing)return; const p=pos(e); ctx.lineWidth=1.8; ctx.lineCap='round'; ctx.strokeStyle='#111'; ctx.lineTo(p.x,p.y); ctx.stroke(); drawn=true; }, {passive:false});
+  c.addEventListener('touchend', () => { drawing=false; sync(); });
+  c._drawn = () => drawn;
+  c._clear = () => { ctx.clearRect(0,0,c.width,c.height); drawn=false; };
+}
+function clearSig(cid, iid) {
+  document.getElementById(cid)._clear();
+  const img = document.getElementById(iid);
+  if (img) img.src='';
+}
+initPad('cSig','cSigImg');
+initPad('sSig','sSigImg');
+
+// Auto-calculate balance
+function calcBalance() {
+  const p = parseFloat((document.getElementById('svcPrice').value||'').replace(/[^0-9.]/g,''))||0;
+  const d = parseFloat((document.getElementById('depositAmt').value||'').replace(/[^0-9.]/g,''))||0;
+  const b = document.getElementById('balanceAmt');
+  if (p>0&&d>=0) { const r=p-d; b.value=r>=0?'$'+r.toFixed(2):'Check amounts'; }
+  else b.value='';
+}
+document.getElementById('svcPrice').addEventListener('input',calcBalance);
+document.getElementById('depositAmt').addEventListener('input',calcBalance);
+
+// Filename
+function updateFilename() {
+  const name = (document.getElementById('cName').value||'').trim().replace(/\s+/g,'');
+  const date = (document.getElementById('cDate').value||'');
+  const disp = document.getElementById('filenameDisplay');
+  const prev = document.getElementById('fnPreview');
+  const fn = (date||'YYYY-MM-DD') + '_' + (name||'ClientName') + '_ColorChemicalConsent.pdf';
+  if (disp) disp.textContent = fn;
+  if (prev) prev.textContent = fn;
+}
+
+// Pre-fill today
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('cDate').value = today;
+document.getElementById('cSigDate').value = today;
+updateFilename();
+
+// Mode switching
+function setMode(mode) {
+  document.body.className = 'mode-' + mode;
+  document.getElementById('btnCompleted').classList.toggle('active', mode==='completed');
+  document.getElementById('btnBlank').classList.toggle('active', mode==='blank');
+}
+
+// Print
+function doPrint() {
+  const mode = document.body.className.includes('blank') ? 'blank' : 'completed';
+  if (mode === 'completed') {
+    const cC = document.getElementById('cSig');
+    const sC = document.getElementById('sSig');
+    if (cC._drawn()) document.getElementById('cSigImg').src = cC.toDataURL('image/png');
+    if (sC._drawn()) document.getElementById('sSigImg').src = sC.toDataURL('image/png');
+  }
+  setTimeout(() => window.print(), 80);
+}
+
+// Photo upload
+function handlePhotoUpload(e) {
+  const preview = document.getElementById('photoPreview');
+  [...e.target.files].slice(0,5).forEach(file => {
+    if (!file.type.startsWith('image/')) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      const wrap = document.createElement('div');
+      wrap.className = 'photo-thumb';
+      const img = document.createElement('img');
+      img.src = ev.target.result;
+      const rm = document.createElement('button');
+      rm.className = 'photo-remove';
+      rm.innerHTML = '&times;';
+      rm.type = 'button';
+      rm.onclick = () => wrap.remove();
+      wrap.appendChild(img);
+      wrap.appendChild(rm);
+      preview.appendChild(wrap);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+// ---- URL PARAMETER PREFILL ----
+// Example: ?price=410&deposit=25&stylist=Kat&service=Graduation+Wig+Customization&date=2026-05-28&clientName=Jasmine&phone=9515550000
+(function() {
+  const params = new URLSearchParams(window.location.search);
+
+  const mappings = [
+    { param: 'price',      id: 'svcPrice',       label: 'Price' },
+    { param: 'deposit',    id: 'depositAmt',     label: 'Deposit' },
+    { param: 'stylist',    id: 'sName',          label: 'Stylist' },
+    { param: 'service',    id: 'svcDescription', label: 'Service' },
+    { param: 'date',       id: 'cDate',          label: 'Date' },
+    { param: 'phone',      id: 'cPhone',         label: 'Phone' },
+    { param: 'clientName', id: 'cName',          label: 'Name' },
+  ];
+
+  const filled = [];
+
+  mappings.forEach(({ param, id, label }) => {
+    const val = params.get(param);
+    if (!val) return;
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.value = decodeURIComponent(val.replace(/\+/g, ' '));
+    filled.push({ label, val: el.value });
+  });
+
+  // Show the prefill banner if any params were applied
+  if (filled.length > 0) {
+    const banner = document.getElementById('prefillBanner');
+    const tagsEl = document.getElementById('prefillTags');
+    if (banner) banner.classList.add('show');
+    if (tagsEl) {
+      filled.forEach(({ label, val }) => {
+        const tag = document.createElement('span');
+        tag.className = 'pb-tag';
+        tag.textContent = label + ': ' + val;
+        tagsEl.appendChild(tag);
+      });
+    }
+  }
+
+  // Recalculate balance and filename after prefill
+  if (typeof calcBalance === 'function') calcBalance();
+  if (typeof updateFilename === 'function') updateFilename();
+})();
+</script>
+</body>
+</html>
