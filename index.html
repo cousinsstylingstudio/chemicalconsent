@@ -847,35 +847,23 @@ body {
   <!-- SCHEDULED SERVICE -->
   <div class="sec-head">Your Scheduled Service</div>
 
-  <div class="sec-label">What Are We Doing Today? <span style="color:#900;margin-left:3px;">*</span></div>
-  <p style="font-size:11.5px;color:#666;margin-bottom:8px;">Select all that apply.</p>
+  <div class="sec-label">Chemical or Color Service Being Performed <span style="color:#900;margin-left:3px;">*</span></div>
+  <p style="font-size:11.5px;color:#666;margin-bottom:8px;">Select all that apply to this appointment.</p>
   <div class="check-grid" id="svcGrid">
     <label class="check-item"><input type="checkbox" value="color_gloss"><span>Color / Gloss</span></label>
     <label class="check-item"><input type="checkbox" value="highlights"><span>Highlights / Lowlights</span></label>
     <label class="check-item"><input type="checkbox" value="bleach_tone"><span>Bleach &amp; Tone</span></label>
     <label class="check-item"><input type="checkbox" value="color_correct"><span>Color Correction</span></label>
+    <label class="check-item"><input type="checkbox" value="vivids"><span>Vivids / Fashion Color</span></label>
+    <label class="check-item"><input type="checkbox" value="root_touchup"><span>Root Touch-Up</span></label>
+    <label class="check-item"><input type="checkbox" value="toner_gloss"><span>Toner / Gloss Refresh</span></label>
+    <label class="check-item"><input type="checkbox" value="corrective_lighten"><span>Corrective Lightening</span></label>
     <label class="check-item"><input type="checkbox" value="relaxer"><span>Relaxer</span></label>
     <label class="check-item"><input type="checkbox" value="keratin"><span>Keratin / Smoothing</span></label>
-    <label class="check-item"><input type="checkbox" value="box_braids"><span>Box Braids</span></label>
-    <label class="check-item"><input type="checkbox" value="knotless"><span>Knotless Braids</span></label>
-    <label class="check-item"><input type="checkbox" value="cornrows"><span>Cornrows</span></label>
-    <label class="check-item"><input type="checkbox" value="faux_locs"><span>Faux Locs</span></label>
-    <label class="check-item"><input type="checkbox" value="twists"><span>Twists</span></label>
-    <label class="check-item"><input type="checkbox" value="feedin"><span>Feed-In / Stitch Braids</span></label>
-    <label class="check-item"><input type="checkbox" value="loc_starter"><span>Loc Starter</span></label>
-    <label class="check-item"><input type="checkbox" value="loc_retwist"><span>Loc Retwist</span></label>
-    <label class="check-item"><input type="checkbox" value="loc_style"><span>Loc Style &amp; Maintenance</span></label>
-    <label class="check-item"><input type="checkbox" value="silk_press"><span>Silk Press</span></label>
-    <label class="check-item"><input type="checkbox" value="blowout"><span>Blowout</span></label>
-    <label class="check-item"><input type="checkbox" value="natural_style"><span>Natural Hair Styling</span></label>
-    <label class="check-item"><input type="checkbox" value="haircut"><span>Haircut (all textures)</span></label>
-    <label class="check-item"><input type="checkbox" value="fade_taper"><span>Fade / Taper</span></label>
-    <label class="check-item"><input type="checkbox" value="shapeup"><span>Shape-Up / Edge-Up</span></label>
-    <label class="check-item"><input type="checkbox" value="beard"><span>Beard Trim &amp; Shape</span></label>
-    <label class="check-item"><input type="checkbox" value="wig_install"><span>Wig Install</span></label>
+    <label class="check-item"><input type="checkbox" value="chem_straight"><span>Chemical Straightening</span></label>
+    <label class="check-item"><input type="checkbox" value="wig_color"><span>Wig Color</span></label>
     <label class="check-item"><input type="checkbox" value="wig_custom"><span>Wig Customization</span></label>
-    <label class="check-item"><input type="checkbox" value="sensory_svc"><span>Sensory-Friendly Session</span></label>
-    <label class="check-item"><input type="checkbox" value="other_svc"><span>Other / Not Listed</span></label>
+    <label class="check-item"><input type="checkbox" value="other_chem"><span>Other Chemical Service</span></label>
   </div>
 
   <div class="grid2">
@@ -1025,14 +1013,15 @@ body {
   </div>
 
   <!-- PRICING -->
-  <div class="sec-head">Service Price &amp; Deposit</div>
+  <div class="sec-head">Total Appointment Investment</div>
   <div class="price-section">
     <div class="ps-title">Your Investment — No Surprises at Checkout</div>
+    <p style="font-size:12px;color:#555;line-height:1.75;margin-bottom:16px;">This total reflects the full agreed appointment cost, including all preparation, customization, chemical processing, styling, installation, finishing work, and related services discussed during consultation unless otherwise stated.</p>
     <div class="price-fields">
       <div class="pf">
-        <span class="pf-label">Total Service Price</span>
+        <span class="pf-label">Total Appointment Price</span>
         <input type="text" id="svcPrice" placeholder="$0.00">
-        <span class="pf-hint">All-in, no hidden fees</span>
+        <span class="pf-hint">Full appointment cost, all-in</span>
       </div>
       <div class="pf">
         <span class="pf-label">Deposit Amount</span>
@@ -1054,7 +1043,7 @@ body {
     <p style="font-size:11px;color:#777;font-style:italic;margin-bottom:12px;">Send payment and a screenshot to confirm your appointment. Zelle: (951) 653-4477 — shows as Black Sheep Investments.</p>
     <label class="ack-row" id="priceAckWrap">
       <input type="checkbox" id="priceAck">
-      <span>I have reviewed the total price, deposit, and balance due. I understand the deposit is non-refundable if I cancel within 48 hours of my appointment.</span>
+      <span>I have reviewed the total appointment price, deposit, and balance due. I understand this amount covers the full scope of services discussed and that the deposit is non-refundable if I cancel within 48 hours of my appointment.</span>
     </label>
   </div>
 
